@@ -1,0 +1,14 @@
+<ion-view view-title="Check-In's">
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh" on-refresh="handleAuthClick(event)">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+
+        <h2>{{chat.summary}}</h2>
+        <p>{{chat.created}}</p>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
