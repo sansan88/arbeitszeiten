@@ -1,9 +1,14 @@
 <ion-view view-title="Account">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+      <h3>Account</h3>
+      <label class="item item-input">
+        <input ng-model="google.calendarid" type="text" placeholder="CalendarID" />
+      </label>
+      <label class="item item-input">
+        <input ng-model="google.clientid" type="text" placeholder="CLIENT_ID" />
+      </label>
+      <button id="save-button" ng-click="save(google)">speichern</button>
     </ion-list>
   </ion-content>
 </ion-view>

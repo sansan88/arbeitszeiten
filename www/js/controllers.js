@@ -13,8 +13,7 @@ angular.module('starter.controllers', [])
 
   // Your Client ID can be retrieved from your project in the Google
   // Developer Console, https://console.developers.google.com
-  var CLIENT_ID = '725787489106-ip4rqd17pfn6i5n9i149vbkpe8us0cc7.apps.googleusercontent.com';
-
+  var CLIENT_ID = window.localStorage.getItem("clientId");
   var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
 
   /**
@@ -78,7 +77,7 @@ angular.module('starter.controllers', [])
    */
   function listUpcomingEvents() {
     var request = gapi.client.calendar.events.list({
-      'calendarId': 'h13mb5ej2fcok6t83makk8o7cc@group.calendar.google.com', //primary
+      'calendarId': window.localStorage.getItem("calendarId"), //primary
       //          'timeMin': (new Date()).toISOString(),
       'showDeleted': false,
       'singleEvents': true,
@@ -99,7 +98,12 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
+  $scope.save = function(google) {
+    window.localStorage.setItem("calendarId", google.calendarid);
+    window.localStorage.setItem("clientId", google.clientid);
+  };
+
+  $scope.google = { "calendarid": window.localStorage.getItem("calendarId"),
+    "clientid": window.localStorage.getItem("clientId")
   };
 });
