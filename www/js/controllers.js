@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
     gapi.auth.authorize({
       'client_id': CLIENT_ID,
       'scope': SCOPES,
-      'immediate': true
+      'immediate': false
     }, handleAuthResult);
   }
 
@@ -53,7 +53,9 @@ angular.module('starter.controllers', [])
    * @param {Event} event Button click event.
    */
   $scope.handleAuthClick = function(event) {
-    gapi.auth.authorize({
+    //gapi.client.setApiKey('AIzaSyBU7niuZNMxSt2QND5k--WglogJv2lIF30', handleAuthResult);
+
+    hgapi.auth.authorize({
         client_id: CLIENT_ID,
         scope: SCOPES,
         immediate: false
